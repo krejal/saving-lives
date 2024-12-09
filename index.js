@@ -19,8 +19,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 // Smooth scrolling to contact section when "Contact Us" button is clicked
-document.getElementById('contact-btn').addEventListener('click', function() {
-    // Select the contact section and scroll to it
+document.getElementById('contact-btn').addEventListener('click', function () {
+
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 });
 function toggleLoginForm() {
@@ -61,11 +61,9 @@ function showModal(modalId) {
     const overlay = document.getElementById("overlay");
     const modal = document.getElementById(modalId);
 
-    // Show the overlay and modal
     overlay.style.display = "block";
     modal.style.display = "block";
-    
-    // Set the aria-hidden attribute to false for accessibility
+
     overlay.setAttribute("aria-hidden", "false");
     modal.setAttribute("aria-hidden", "false");
 }
@@ -75,36 +73,35 @@ function hideAllModals() {
     const overlay = document.getElementById("overlay");
     const modals = document.querySelectorAll(".modal");
 
-    // Hide the overlay and modals
     overlay.style.display = "none";
     modals.forEach(modal => modal.style.display = "none");
 
-    // Set the aria-hidden attribute to true for accessibility
     overlay.setAttribute("aria-hidden", "true");
     modals.forEach(modal => modal.setAttribute("aria-hidden", "true"));
 }
 
 
-
-// Select all slides
 const slides = document.querySelectorAll('.slider .slide');
 let currentSlide = 0;
 
 // Function to show a specific slide
 function showSlide(index) {
-    // Reset all slides
+
     slides.forEach((slide) => slide.classList.remove('active'));
 
-    // Loop back if the index is out of range
     currentSlide = (index + slides.length) % slides.length;
 
-    // Show the current slide
     slides[currentSlide].classList.add('active');
 }
 
-// Attach event listeners for navigation
+function autoSlide() {
+    setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 3000);
+}
+
 document.querySelector('.prev').addEventListener('click', () => showSlide(currentSlide - 1));
 document.querySelector('.next').addEventListener('click', () => showSlide(currentSlide + 1));
 
-// Initialize the first slide
 showSlide(currentSlide);
+autoSlide();

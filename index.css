@@ -31,29 +31,41 @@ html {
 
 .navbar .logo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+
+}
+
+.navbar .text-container {
+    display: flex;
+    flex-direction: column;
     text-align: left;
 }
 
-.navbar .logo img {
-    height: 80px;
-}
-
-.navbar .logo div {
+.navbar .text-container div {
     font-family: "Dancing Script", cursive;
     font-size: 18px;
 }
 
-.navbar .logo span {
+.navbar .text-container span {
     color: brown;
     font-size: 22px;
+}
+
+.navbar .text-container .indented {
+    margin-left: 6px;
+}
+
+.navbar .logo img {
+    height: 80px;
+
+    margin-left: -22px;
 }
 
 .navbar .mid {
     display: flex;
     align-items: center;
-    margin-left: 550px;
+    margin-left: 500px;
     flex-grow: 1;
 }
 
@@ -226,7 +238,7 @@ main {
 
 #about {
     width: 100%;
-    padding: 60px 0;
+    padding:10px 0;
     background-color: #f5e5e5;
     color: #333;
     display: flex;
